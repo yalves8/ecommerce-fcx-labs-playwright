@@ -17,8 +17,10 @@ class RegistrationPage {
     this.cityField = 'input[name="cityRegisterPage"]';
     this.addressField = 'input[name="addressRegisterPage"]';
     this.stateField = 'input[name="state_/_province_/_regionRegisterPage"]';
-    this.postalCodeField = 'input[name="postal_codeRegisterPage"]';
-    this.registerButton = '#registerBtn';
+      this.postalCodeField = 'input[name="postal_codeRegisterPage"]';
+      this.inputAgreeTerms = 'input[name="i_agree"]';
+
+    this.registerButton = '#register_btn';
     this.checkoutButton = '#registration_btn';
     }
     
@@ -37,12 +39,13 @@ class RegistrationPage {
     await this.page.fill(this.confirmPasswordField, password);
     await this.page.fill(this.firstNameField, faker.person.firstName());
     await this.page.fill(this.lastNameField, faker.person.lastName());
-      await this.page.fill(this.phoneNumberField, faker.phone.number('###########'));
+    await this.page.fill(this.phoneNumberField, faker.phone.number('(###)#########'));
     await this.page.selectOption(this.countryField, 'Brazil');
     await this.page.fill(this.cityField, 'Recife');
     await this.page.fill(this.addressField, faker.location.streetAddress());
     await this.page.fill(this.stateField, 'Pernambuco');
-    await this.page.fill(this.postalCodeField, '50000-000');
+      await this.page.fill(this.postalCodeField, '50000-000');
+    await this.page.check(this.inputAgreeTerms);
     await this.page.click(this.registerButton);
   }
 }
