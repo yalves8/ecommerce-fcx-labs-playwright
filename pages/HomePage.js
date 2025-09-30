@@ -4,7 +4,7 @@ class HomePage {
   }
 
   async navigate() {
-    await this.page.goto('/');
+    await this.page.goto('https://www.advantageonlineshopping.com/#/');
   }
 
   async goToCategory(category) {
