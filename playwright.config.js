@@ -9,10 +9,10 @@ module.exports = defineConfig({
         timeout: 5000
     },
     fullyParallel: true,
-    retries: 1,
+    retries: process.env.CI ? 2 : 1,
     reporter: [['list'], ['html', { outputFolder: 'playwright-report' }]],
     use: {
-        headless: false, //true to CI/CD
+        headless: process.env.CI ? true : false, //true to CI/CD
         baseURL: 'https://www.advantageonlineshopping.com/#/',
         viewport: { width: 1280, height: 720 },
         trace: 'on-first-retry',
