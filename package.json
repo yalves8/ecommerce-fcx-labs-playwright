@@ -1,0 +1,16 @@
+{
+  "name": "ecommerce-fcx-labs-playwright",
+  "version": "1.0.0",
+  "description": "Advantage Online Shopping Checkout Flow Automation Using Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js --require ./steps/**/*.js ./features/**/*.feature"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0",
+    "@playwright/test": "^1.55.1"
+  }
+}
