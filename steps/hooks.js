@@ -1,5 +1,5 @@
-const { Before, After, setDefaultTimeout } = require('@cucumber/cucumber');
-const { chromium, firefox, webkit } = require('@playwright/test');
+const { Before, After, setDefaultTimeout } = require("@cucumber/cucumber");
+const { chromium, firefox, webkit } = require("@playwright/test");
 
 setDefaultTimeout(90 * 1000); // 90 segundos por cenário
 
@@ -10,8 +10,10 @@ Before(async function () {
 });
 
 After(async function (scenario) {
-  if (scenario.result.status === 'FAILED') {
-    await this.page.screenshot({ path: `screenshots/${scenario.pickle.name}.png` });
+  if (scenario.result.status === "FAILED") {
+    await this.page.screenshot({
+      path: `screenshots/${scenario.pickle.name}.png`,
+    });
     await this.page.video().saveAs(`videos/${scenario.pickle.name}.webm`);
   }
   if (this.browser) {
