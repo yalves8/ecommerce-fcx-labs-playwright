@@ -4,7 +4,8 @@
   "description": "Advantage Online Shopping Checkout Flow Automation Using Playwright",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js --require ./steps/**/*.js ./features/**/*.feature"
+    "test": "cucumber-js --import ./steps/hooks.js --import ./steps/**/*.js ./features/**/*.feature",
+    "test:ci": "CI=true BROWSER=chromium npm run test"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +13,8 @@
   "devDependencies": {
     "@cucumber/cucumber": "^12.2.0",
     "@playwright/test": "^1.55.1"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.0.0"
   }
 }
