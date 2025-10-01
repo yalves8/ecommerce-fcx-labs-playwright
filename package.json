@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "Advantage Online Shopping Checkout Flow Automation Using Playwright",
   "main": "index.js",
+  "fullyParallel": false,
   "scripts": {
-    "test": "cucumber-js --import ./steps/hooks.js --import ./steps/**/*.js ./features/**/*.feature",
+    "test": "cucumber-js --require ./steps/hooks.js --require ./steps/**/*.js ./features/**/*.feature",
+    "test:smoke": "cucumber-js --require ./steps/hooks.js --require ./steps/**/*.js ./features/**/*.feature --tags @smoke",
+    "test:regression": "cucumber-js --require ./steps/hooks.js --require ./steps/**/*.js ./features/**/*.feature --tags @regression",
+    "test:checkout": "cucumber-js --require ./steps/hooks.js --require ./steps/**/*.js ./features/**/*.feature --tags @checkout",
     "test:ci": "CI=true BROWSER=chromium npm run test"
   },
   "keywords": [],
