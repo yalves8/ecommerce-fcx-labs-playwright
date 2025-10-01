@@ -23,35 +23,6 @@ class RegistrationPage {
     this.checkoutButton = "#registration_btn";
   }
 
-  generateSafePayUsername() {
-    const length = Math.floor(Math.random() * 11) + 5;
-    const chars =
-      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_";
-    let username = "";
-    for (let i = 0; i < length; i++) {
-      username += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return username;
-  }
-
-  generateSafePayPassword() {
-    const length = Math.floor(Math.random() * 9) + 4; // 4 a 12
-    const upper = String.fromCharCode(65 + Math.floor(Math.random() * 26));
-    const lower = String.fromCharCode(97 + Math.floor(Math.random() * 26));
-    const number = Math.floor(Math.random() * 10).toString();
-
-    const otherLength = length - 3;
-    const chars =
-      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    let other = "";
-    for (let i = 0; i < otherLength; i++) {
-      other += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-
-    const arr = [upper, lower, number, ...other.split("")];
-    return arr.sort(() => Math.random() - 0.5).join("");
-  }
-
   async clickNewUser() {
     await this.page.click(this.checkoutButton);
   }
@@ -79,7 +50,7 @@ class RegistrationPage {
 
     let phone = `(${ddd})${number}`.substring(0, 17);
 
-    await this.page.fill(this.phoneNumberField, faker.phone.number(phone));
+    await this.page.fill(this.phoneNumberField, phone);
     await this.page.selectOption(this.countryField, "Brazil");
     await this.page.fill(this.cityField, "Recife");
     await this.page.fill(this.addressField, faker.location.streetAddress());
