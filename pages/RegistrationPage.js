@@ -17,9 +17,8 @@ class RegistrationPage {
     this.cityField = 'input[name="cityRegisterPage"]';
     this.addressField = 'input[name="addressRegisterPage"]';
     this.stateField = 'input[name="state_/_province_/_regionRegisterPage"]';
-      this.postalCodeField = 'input[name="postal_codeRegisterPage"]';
-      this.inputAgreeTerms = 'input[name="i_agree"]';
-
+    this.postalCodeField = 'input[name="postal_codeRegisterPage"]';
+    this.inputAgreeTerms = 'input[name="i_agree"]';
     this.registerButton = '#register_btn';
     this.checkoutButton = '#registration_btn';
     }
