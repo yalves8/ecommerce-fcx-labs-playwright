@@ -42,10 +42,10 @@ When('I register a new user with valid information', async function () {
 });
 
 When('I fill in shipping and payment information', async function () {
-  checkoutPage = new CheckoutPage(this.page);
-  await checkoutPage.fillShippingDetails();
-  await checkoutPage.fillPaymentDetails();
-  await checkoutPage.placeOrder();
+    checkoutPage = new CheckoutPage(this.page);
+    await checkoutPage.clickNext();
+  await checkoutPage.fillSafePayInformation();
+  await checkoutPage.pay();
 });
 
 Then('I should see the order confirmation', async function () {
