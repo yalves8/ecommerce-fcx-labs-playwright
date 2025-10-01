@@ -17,7 +17,7 @@ class CheckoutPage {
   }
 
   generateSafePayUsername() {
-    const length = Math.floor(Math.random() * 11) + 5; // 5 a 15
+    const length = Math.floor(Math.random() * 11) + 5; 
     const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_';
     let username = '';
     for (let i = 0; i < length; i++) {

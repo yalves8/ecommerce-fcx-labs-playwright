@@ -22,11 +22,10 @@ Given('I am on the home page', async function () {
 
 When('I click on {string} and select the first product', async function (category) {
   await homePage.goToCategory(category);
-  await productPage.addFirstProductToCart();
 });
 
 When('I click "Add to Cart"', async function () {
-  // handled in addFirstProductToCart()
+  await productPage.addFirstProductToCart();
 });
 
 When('I go to the cart and proceed to checkout', async function () {
@@ -50,5 +49,6 @@ When('I fill in shipping and payment information', async function () {
 
 Then('I should see the order confirmation', async function () {
   confirmationPage = new ConfirmationPage(this.page);
-  await confirmationPage.validateOrderConfirmation();
+    await confirmationPage.isConfirmationPageVisible();
+    await confirmationPage.isOrderNumberVisible();
 });
